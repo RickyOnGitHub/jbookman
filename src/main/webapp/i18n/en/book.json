@@ -1,0 +1,32 @@
+{
+  "jbookmanApp": {
+    "book": {
+      "home": {
+        "title": "Books",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Book",
+        "createOrEditLabel": "Create or edit a Book",
+        "notFound": "No Books found"
+      },
+      "created": "A new Book is created with identifier {{ param }}",
+      "updated": "A Book is updated with identifier {{ param }}",
+      "deleted": "A Book is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Book {{ id }}?"
+      },
+      "detail": {
+        "title": "Book"
+      },
+      "id": "ID",
+      "title": "Title",
+      "edition": "Edition",
+      "isbn13": "Isbn 13",
+      "publishingyear": "Publishingyear",
+      "listprice": "Listprice",
+      "currency": "Currency",
+      "author": "Author",
+      "genre": "Genre",
+      "publisher": "Publisher"
+    }
+  }
+}

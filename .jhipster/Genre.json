@@ -1,0 +1,22 @@
+{
+  "annotations": {
+    "changelogDate": "20240921184358"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "jbm_genre",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength"],
+      "fieldValidateRulesMinlength": "3"
+    }
+  ],
+  "incrementalChangelog": true,
+  "name": "Genre",
+  "pagination": "infinite-scroll",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

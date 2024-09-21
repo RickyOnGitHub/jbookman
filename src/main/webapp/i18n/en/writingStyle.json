@@ -1,0 +1,12 @@
+{
+  "jbookmanApp": {
+    "WritingStyle": {
+      "null": "",
+      "ACADEMIC": "ACADEMIC",
+      "CREATIVE": "CREATIVE",
+      "JOURNALISTIC": "JOURNALISTIC",
+      "NARRATIVE": "NARRATIVE",
+      "TECHNICAL": "TECHNICAL"
+    }
+  }
+}

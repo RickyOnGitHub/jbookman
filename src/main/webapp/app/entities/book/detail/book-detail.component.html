@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (book()) {
+      <div>
+        <h2 data-cy="bookDetailsHeading"><span jhiTranslate="jbookmanApp.book.detail.title">Book</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ book()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="jbookmanApp.book.title">Title</span></dt>
+          <dd>
+            <span>{{ book()!.title }}</span>
+          </dd>
+          <dt><span jhiTranslate="jbookmanApp.book.edition">Edition</span></dt>
+          <dd>
+            <span>{{ book()!.edition }}</span>
+          </dd>
+          <dt><span jhiTranslate="jbookmanApp.book.isbn13">Isbn 13</span></dt>
+          <dd>
+            <span>{{ book()!.isbn13 }}</span>
+          </dd>
+          <dt><span jhiTranslate="jbookmanApp.book.publishingyear">Publishingyear</span></dt>
+          <dd>
+            <span>{{ book()!.publishingyear }}</span>
+          </dd>
+          <dt><span jhiTranslate="jbookmanApp.book.listprice">Listprice</span></dt>
+          <dd>
+            <span>{{ book()!.listprice }}</span>
+          </dd>
+          <dt><span jhiTranslate="jbookmanApp.book.currency">Currency</span></dt>
+          <dd>
+            @if (book()!.currency) {
+              <div>
+                <a [routerLink]="['/currency', book()!.currency?.id, 'view']">{{ book()!.currency?.alphabeticcode }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="jbookmanApp.book.author">Author</span></dt>
+          <dd>
+            @if (book()!.author) {
+              <div>
+                <a [routerLink]="['/author', book()!.author?.id, 'view']">{{ book()!.author?.name }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="jbookmanApp.book.genre">Genre</span></dt>
+          <dd>
+            @if (book()!.genre) {
+              <div>
+                <a [routerLink]="['/genre', book()!.genre?.id, 'view']">{{ book()!.genre?.name }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="jbookmanApp.book.publisher">Publisher</span></dt>
+          <dd>
+            @if (book()!.publisher) {
+              <div>
+                <a [routerLink]="['/publisher', book()!.publisher?.id, 'view']">{{ book()!.publisher?.name }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/book', book()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

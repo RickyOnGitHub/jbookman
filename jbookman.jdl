@@ -1,0 +1,52 @@
+enum WritingStyle {
+	ACADEMIC,
+	CREATIVE,
+	JOURNALISTIC	
+	NARRATIVE,
+	TECHNICAL
+}
+
+entity Author(jbm_author) {
+	name String required
+	writingstyle WritingStyle required
+	birthday LocalDate required
+	website String 
+	socialmedia String
+}
+
+entity Publisher(jbm_publisher) {
+	name String required unique
+	contact String required
+	website String 
+	socialmedia String
+}
+
+entity Genre(jbm_genre) {
+	name String required unique minlength(3)
+}
+
+entity Currency(jbm_currency) {
+	alphabeticcode String required unique minlength(3) maxlength(3) pattern(/\b[A-Z]{3}\b/)
+	numericcode Integer required min(100) max(999)
+	name String required
+	minorunit Integer
+}
+
+entity Book(jbm_book) {
+	title String required
+	edition Integer required min(1)
+	isbn13 String required unique pattern(/^(97[89])?\d{9}(\d|X)$/) 
+	publishingyear Integer required min(0)
+	listprice BigDecimal required min(0)		
+}
+
+relationship ManyToOne {
+	Book{currency(alphabeticcode) required} to Currency
+	Book{author(name) required} to Author
+	Book{genre(name) required} to Genre
+	Book{publisher(name) required} to Publisher
+}
+
+dto Author, Publisher, Genre, Currency, Book with mapstruct
+service Author, Publisher, Genre, Currency, Book with serviceClass
+paginate Author, Publisher, Genre, Currency, Book with infinite-scroll

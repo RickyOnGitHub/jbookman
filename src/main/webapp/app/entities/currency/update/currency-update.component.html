@@ -1,0 +1,127 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-currency-heading" data-cy="CurrencyCreateUpdateHeading" jhiTranslate="jbookmanApp.currency.home.createOrEditLabel">
+        Create or edit a Currency
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="jbookmanApp.currency.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_alphabeticcode" jhiTranslate="jbookmanApp.currency.alphabeticcode">Alphabeticcode</label>
+          <input
+            type="text"
+            class="form-control"
+            name="alphabeticcode"
+            id="field_alphabeticcode"
+            data-cy="alphabeticcode"
+            formControlName="alphabeticcode"
+          />
+          @if (
+            editForm.get('alphabeticcode')!.invalid && (editForm.get('alphabeticcode')!.dirty || editForm.get('alphabeticcode')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('alphabeticcode')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              @if (editForm.get('alphabeticcode')?.errors?.minlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: '3' }"
+                  >This field is required to be at least 3 characters.</small
+                >
+              }
+              @if (editForm.get('alphabeticcode')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '3' }"
+                  >This field cannot be longer than 3 characters.</small
+                >
+              }
+              @if (editForm.get('alphabeticcode')?.errors?.pattern) {
+                <small
+                  class="form-text text-danger"
+                  jhiTranslate="entity.validation.pattern"
+                  [translateValues]="{ pattern: 'Alphabeticcode' }"
+                  >This field should follow pattern for Alphabeticcode.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_numericcode" jhiTranslate="jbookmanApp.currency.numericcode">Numericcode</label>
+          <input
+            type="number"
+            class="form-control"
+            name="numericcode"
+            id="field_numericcode"
+            data-cy="numericcode"
+            formControlName="numericcode"
+          />
+          @if (editForm.get('numericcode')!.invalid && (editForm.get('numericcode')!.dirty || editForm.get('numericcode')!.touched)) {
+            <div>
+              @if (editForm.get('numericcode')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              @if (editForm.get('numericcode')?.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '100' }"
+                  >This field should be at least 100.</small
+                >
+              }
+              @if (editForm.get('numericcode')?.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '999' }"
+                  >This field cannot be more than 999.</small
+                >
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('numericcode')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_name" jhiTranslate="jbookmanApp.currency.name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          @if (editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)) {
+            <div>
+              @if (editForm.get('name')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_minorunit" jhiTranslate="jbookmanApp.currency.minorunit">Minorunit</label>
+          <input type="number" class="form-control" name="minorunit" id="field_minorunit" data-cy="minorunit" formControlName="minorunit" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

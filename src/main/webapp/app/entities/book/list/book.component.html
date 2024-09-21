@@ -1,0 +1,170 @@
+<div>
+  <h2 id="page-heading" data-cy="BookHeading">
+    <span jhiTranslate="jbookmanApp.book.home.title">Books</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jbookmanApp.book.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-book"
+        [routerLink]="['/book/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jbookmanApp.book.home.createLabel">Create a new Book</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (books?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="jbookmanApp.book.home.notFound">No Books found</span>
+    </div>
+  }
+
+  @if (books && books.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="title">
+              <div class="d-flex">
+                <span jhiTranslate="jbookmanApp.book.title">Title</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="edition">
+              <div class="d-flex">
+                <span jhiTranslate="jbookmanApp.book.edition">Edition</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="isbn13">
+              <div class="d-flex">
+                <span jhiTranslate="jbookmanApp.book.isbn13">Isbn 13</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="publishingyear">
+              <div class="d-flex">
+                <span jhiTranslate="jbookmanApp.book.publishingyear">Publishingyear</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="listprice">
+              <div class="d-flex">
+                <span jhiTranslate="jbookmanApp.book.listprice">Listprice</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="currency.alphabeticcode">
+              <div class="d-flex">
+                <span jhiTranslate="jbookmanApp.book.currency">Currency</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="author.name">
+              <div class="d-flex">
+                <span jhiTranslate="jbookmanApp.book.author">Author</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="genre.name">
+              <div class="d-flex">
+                <span jhiTranslate="jbookmanApp.book.genre">Genre</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="publisher.name">
+              <div class="d-flex">
+                <span jhiTranslate="jbookmanApp.book.publisher">Publisher</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody infinite-scroll (scrolled)="loadNextPage()" [infiniteScrollDisabled]="!hasMorePage()" [infiniteScrollDistance]="0">
+          @for (book of books; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/book', book.id, 'view']">{{ book.id }}</a>
+              </td>
+              <td>{{ book.title }}</td>
+              <td>{{ book.edition }}</td>
+              <td>{{ book.isbn13 }}</td>
+              <td>{{ book.publishingyear }}</td>
+              <td>{{ book.listprice }}</td>
+              <td>
+                @if (book.currency) {
+                  <div>
+                    <a [routerLink]="['/currency', book.currency.id, 'view']">{{ book.currency.alphabeticcode }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (book.author) {
+                  <div>
+                    <a [routerLink]="['/author', book.author.id, 'view']">{{ book.author.name }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (book.genre) {
+                  <div>
+                    <a [routerLink]="['/genre', book.genre.id, 'view']">{{ book.genre.name }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (book.publisher) {
+                  <div>
+                    <a [routerLink]="['/publisher', book.publisher.id, 'view']">{{ book.publisher.name }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/book', book.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/book', book.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(book)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

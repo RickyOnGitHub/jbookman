@@ -1,0 +1,40 @@
+{
+  "annotations": {
+    "changelogDate": "20240921184357"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "jbm_currency",
+  "fields": [
+    {
+      "fieldName": "alphabeticcode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength", "maxlength", "pattern"],
+      "fieldValidateRulesMaxlength": "3",
+      "fieldValidateRulesMinlength": "3",
+      "fieldValidateRulesPattern": "\\b[A-Z]{3}\\b"
+    },
+    {
+      "fieldName": "numericcode",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMax": "999",
+      "fieldValidateRulesMin": "100"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "minorunit",
+      "fieldType": "Integer"
+    }
+  ],
+  "incrementalChangelog": true,
+  "name": "Currency",
+  "pagination": "infinite-scroll",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

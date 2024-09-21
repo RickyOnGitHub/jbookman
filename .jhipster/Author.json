@@ -1,0 +1,40 @@
+{
+  "annotations": {
+    "changelogDate": "20240921184355"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "jbm_author",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "writingstyle",
+      "fieldType": "WritingStyle",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACADEMIC,CREATIVE,JOURNALISTIC,NARRATIVE,TECHNICAL"
+    },
+    {
+      "fieldName": "birthday",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "website",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "socialmedia",
+      "fieldType": "String"
+    }
+  ],
+  "incrementalChangelog": true,
+  "name": "Author",
+  "pagination": "infinite-scroll",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

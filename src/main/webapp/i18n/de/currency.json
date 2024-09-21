@@ -1,0 +1,27 @@
+{
+  "jbookmanApp": {
+    "currency": {
+      "home": {
+        "title": "Currencies",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Currency erstellen",
+        "createOrEditLabel": "Currency erstellen oder bearbeiten",
+        "notFound": "Keine Currencies gefunden"
+      },
+      "created": "Currency erstellt mit ID {{ param }}",
+      "updated": "Currency aktualisiert mit ID {{ param }}",
+      "deleted": "Currency gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Currency {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Currency"
+      },
+      "id": "ID",
+      "alphabeticcode": "Alphabeticcode",
+      "numericcode": "Numericcode",
+      "name": "Name",
+      "minorunit": "Minorunit"
+    }
+  }
+}

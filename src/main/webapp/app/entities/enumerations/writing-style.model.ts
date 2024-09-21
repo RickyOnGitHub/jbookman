@@ -1,0 +1,11 @@
+export enum WritingStyle {
+  ACADEMIC = 'ACADEMIC',
+
+  CREATIVE = 'CREATIVE',
+
+  JOURNALISTIC = 'JOURNALISTIC',
+
+  NARRATIVE = 'NARRATIVE',
+
+  TECHNICAL = 'TECHNICAL',
+}
