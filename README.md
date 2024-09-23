@@ -1,6 +1,17 @@
-# jbookman
+# JBookMan - the Java Spring Boot Challenge
 
-This application was generated using JHipster 8.3.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.3.0](https://www.jhipster.tech/documentation-archive/v8.3.0).
+This is a simple web application for managing books using Java Spring Boot for backend and Angular for frontend. They talk to each other using REST. The application is based on the famous JHipster Framework, using the version 8.3.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.3.0](https://www.jhipster.tech/documentation-archive/v8.3.0).
+
+## Quickstart
+
+- make a subdirectory for this project on a local drive, f.e. `c:\dev`
+- navigate to this target directory `cd c:\dev`
+- clone this repository (assuming you are using git) `git clone https://github.com/RickyOnGitHub/jbookman.git`
+- navigate to root folder of the resulting project folder `cd c:\dev\jbookman`
+- run `.\mvnw` to start the application with the development profile (caution: if running this command for the first time, it might take some time due to install of node_modules subfolder)
+- if built is successful, open browser and navigate to http://localhost:8080 where you will be greeted by some Java Hipster
+
+image::/static/jbookman-welcome-001.png
 
 ## Project Structure
 
