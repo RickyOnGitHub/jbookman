@@ -1,6 +1,6 @@
 # JBookMan - the Java Spring Boot Challenge
 
-This is a simple web application for managing books using Java Spring Boot for backend and Angular for frontend. They talk to each other using REST. The application is based on the famous JHipster Framework, using the version 8.3.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.3.0](https://www.jhipster.tech/documentation-archive/v8.3.0).
+Howdy and Welcome!!! This is a simple web application for managing books using **Java Spring Boot** for backend and **Angular** for frontend. They talk to each other using **REST**. The Development Profile uses H2 Database with file based storage. The Production Profile will use PostgreSQL and Docker. The application is based on the famous JHipster Framework, using the version 8.3.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.3.0](https://www.jhipster.tech/documentation-archive/v8.3.0).
 
 ## Quickstart
 
@@ -12,6 +12,42 @@ This is a simple web application for managing books using Java Spring Boot for b
 - if built is successful, open browser and navigate to http://localhost:8080 where you will be greeted by some Java Hipster
 
 <img src="/static/jbookman-welcome-001.png" alt="JBookMan Welcome Screen">
+
+- sign in with username `admin` and password `admin` by selecting the respective entry from the Account menu.
+
+<img src="/static/jbookman-signin-001.png" alt="JBookMan Sign in Screen">
+
+- if successfully signed in, you can select the program entities from the entities submenu.
+
+<img src="/static/jbookman-entities-001.png" alt="JBookMan Available Entities">
+
+- to enter a new book, it helps to understand the data model, which is represented in this application in JDL https://www.jhipster.tech/jdl/intro/
+
+<img src="/static/jbookman-jdl-001.png" alt="JBookMan JDL Data Model">
+
+- you see, there a several relationships for a book entry: if you want to create a new book (1) author, (2) publisher, (3) genre and (4) iso currency for the books' list price must be available. Don't be afraid, sample data to start off is created with Faker https://fakerjs.dev/. From the list of available books, you can create a new book entry.
+
+<img src="/static/jbookman-entities-books-001.png" alt="JBookMan List of currently available Books">
+
+- You enter the details information for a new book entry and store it with the Save Button:
+
+<img src="/static/jbookman-entity-book-new-001.png" alt="JBookMan Add a new book to the List">
+
+- The **Administration** Section offers nice-looking UIs on top of some Spring Boot's many monitoring and configuration features:
+
+<img src="/static/jbookman-administration-001.png" alt="JBookMan Administration Menu">
+
+- With the Sign out Entry from the Account Menu, you can leave this Application.
+
+<img src="/static/jbookman-account-001.png" alt="JBookMan Sign Out from the Account Menu">
+
+## What is JHipster?
+
+JHipster is one of those open-source projects you stumble upon and immediately think, "`Of course!`" It combines three very successful frameworks in web development: Bootstrap, Angular, and Spring Boot. Bootstrap was one of the first dominant web-component frameworks. Its most substantial appeal was that it only required a bit of HTML, and it worked! All the efforts we made in the Java community to develop web components were shown a better path by Bootstrap. It leveled the playing field in HTML/CSS development, much like Apple's Human Interface Guidelines did for iOS apps.
+
+https://www.julien-dubois.com/ [Julien Dubois] started JHipster in October 2013 (Julien's first commit was on https://github.com/jhipster/generator-jhipster/commit/c8630ab7af7b6a99db880b3b0e2403806b7d2436 [October 21, 2013]). The first public release (version 0.3.1) launched on December 7, 2013. Since then, the project has had 250 releases! It is an open-source, Apache 2.0-licensed project on GitHub. It has a core team of 30 developers and over 700 contributors. You can find its homepage at https://www.jhipster.tech/ [www.jhipster.tech]. If you look at https://github.com/jhipster/generator-jhipster [the project on GitHub], you can see it's mostly written in TypeScript (57%), Java (18%), and JavaScript (13%).
+
+JHipster 8 is the same JHipster many developers know and love, with a couple of bright and shiny new features: namely Spring Boot 3.2, Angular 17, Vue 3, and Java 21 support.
 
 ## Project Structure
 
