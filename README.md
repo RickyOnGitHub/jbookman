@@ -13,19 +13,19 @@ Howdy and Welcome!!! This is a simple web application for managing books using *
 
 <img src="/static/jbookman-welcome-001.png" alt="JBookMan Welcome Screen">
 
-- sign in with username `admin` and password `admin` by selecting the respective entry from the Account menu.
+- sign in with username `admin` and password `admin` by selecting the respective entry from the **Account Menu**.
 
 <img src="/static/jbookman-signin-001.png" alt="JBookMan Sign in Screen">
 
-- if successfully signed in, you can select the program entities from the entities submenu.
+- if successfully signed in, you can select the program entities from the **Entities Menu**.
 
 <img src="/static/jbookman-entities-001.png" alt="JBookMan Available Entities">
 
-- to enter a new book, it helps to understand the data model, which is represented in this application in JDL https://www.jhipster.tech/jdl/intro/
+- to enter a new book, it helps to understand the data model, which is represented in this application in **JDL** https://www.jhipster.tech/jdl/intro/
 
 <img src="/static/jbookman-jdl-001.png" alt="JBookMan JDL Data Model">
 
-- you see, there a several relationships for a book entry: if you want to create a new book (1) author, (2) publisher, (3) genre and (4) iso currency for the books' list price must be available. Don't be afraid, sample data to start off is created with Faker https://fakerjs.dev/. From the list of available books, you can create a new book entry.
+- you see, there a several relationships for a book entry: if you want to create a new book (1) author, (2) publisher, (3) genre and (4) iso currency for the books' list price must be available. Don't be afraid, sample data to start off is created with Faker https://fakerjs.dev/. From the list of available books, you can **Create a new book**.
 
 <img src="/static/jbookman-entities-books-001.png" alt="JBookMan List of currently available Books">
 
@@ -37,7 +37,7 @@ Howdy and Welcome!!! This is a simple web application for managing books using *
 
 <img src="/static/jbookman-administration-001.png" alt="JBookMan Administration Menu">
 
-- With the Sign out Entry from the Account Menu, you can leave this Application.
+- With the **Sign out** Entry from the **Account Menu**, you can leave this Application.
 
 <img src="/static/jbookman-account-001.png" alt="JBookMan Sign Out from the Account Menu">
 
