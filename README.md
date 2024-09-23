@@ -11,7 +11,7 @@ This is a simple web application for managing books using Java Spring Boot for b
 - run `.\mvnw` to start the application with the development profile (caution: if running this command for the first time, it might take some time due to install of node_modules subfolder)
 - if built is successful, open browser and navigate to http://localhost:8080 where you will be greeted by some Java Hipster
 
-image::/static/jbookman-welcome-001.png
+<img src="/static/jbookman-welcome-001.png" alt="JBookMan Welcome Screen" width="50%" height="50%">
 
 ## Project Structure
 
