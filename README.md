@@ -1,6 +1,6 @@
 # JBookMan - the Java Spring Boot Challenge
 
-Howdy and Welcome!!! This is a simple web application for managing books using **Java Spring Boot** for backend and **Angular** for frontend. They talk to each other using **REST**. The Development Profile uses H2 Database with file based storage. The Production Profile will use PostgreSQL and Docker. The application is based on the famous JHipster Framework, using the version 8.3.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.3.0](https://www.jhipster.tech/documentation-archive/v8.3.0).
+Howdy and Welcome!! This is my simple [**fullstack portfolio application**](https://aws.amazon.com/what-is/full-stack-development/) using [**Java Spring Boot**](https://spring.io/projects/spring-boot) for backend and [**Angular**](https://angular.dev/) for frontend. They talk to each other using [**REST**](https://en.wikipedia.org/wiki/REST). The application allows the management of **books** in a virtual library system. The data model is quite simple and includes properties such as title, author, ISBN, publication year and list price. The project is based on the famous [**JHipster Framework**](https://www.jhipster.tech/), using the version 8.3.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.3.0](https://www.jhipster.tech/documentation-archive/v8.3.0).
 
 ## Quickstart
 
@@ -13,7 +13,7 @@ Howdy and Welcome!!! This is a simple web application for managing books using *
 
 <img src="/static/jbookman-welcome-001.png" alt="JBookMan Welcome Screen">
 
-- sign in with username `admin` and password `admin` by selecting the respective entry from the **Account Menu**.
+- sign in with username `admin` and password `admin` by selecting the entry from the **Account Menu**.
 
 <img src="/static/jbookman-signin-001.png" alt="JBookMan Sign in Screen">
 
@@ -21,11 +21,11 @@ Howdy and Welcome!!! This is a simple web application for managing books using *
 
 <img src="/static/jbookman-entities-001.png" alt="JBookMan Available Entities">
 
-- to enter a new book, it helps to understand the data model, which is represented in this application in **JDL** https://www.jhipster.tech/jdl/intro/
+- to enter a new book, it helps to understand the data model, which is represented in this application in [JDL](https://www.jhipster.tech/jdl/intro/).
 
 <img src="/static/jbookman-jdl-001.png" alt="JBookMan JDL Data Model">
 
-- you see, there a several relationships for a book entry: if you want to create a new book (1) author, (2) publisher, (3) genre and (4) iso currency for the books' list price must be available. Don't be afraid, sample data to start off is created with Faker https://fakerjs.dev/. From the list of available books, you can **Create a new book**.
+- you see, there a several relationships for a book entry: if you want to create a new book (1) author, (2) publisher, (3) genre and (4) iso currency for the books' list price must be available. Don't be afraid, sample data to start off is created with [FAKER](https://fakerjs.dev/). From the list of available books, you can **Create a new book**.
 
 <img src="/static/jbookman-entities-books-001.png" alt="JBookMan List of currently available Books">
 
@@ -41,13 +41,72 @@ Howdy and Welcome!!! This is a simple web application for managing books using *
 
 <img src="/static/jbookman-account-001.png" alt="JBookMan Sign Out from the Account Menu">
 
+## Which concepts are demonstrated?
+
+1. Initial Setup
+
+   - Create a Spring Boot project:
+     - Use Spring Initializr or another tool to create a Spring Boot project.
+     - Add the necessary dependencies:
+       - Spring Web (for REST)
+       - Spring Data JPA (for database integration)
+       - H2 with file-based persistence for the development profile
+       - PostreSQL for the production profile
+       - Spring Boot Test (for unit tests)
+
+2. Implement Data Model
+
+   - Develop a simple Book class:
+     - The Book class should contain at least the following attributes:
+       - Long id (unique identifier) or possibly a UUID (as String)
+       - String title (title of the book)
+       - String author (author of the book)
+       - String isbn (ISBN number of the book)
+       - int year (publication year)
+       - big-decimal price (price of the book)
+     - Use JPA annotations to define the class as an entity.
+     - add some field level validation rules
+
+3. Create Repository Layer
+
+   - Create a JPA repository for the Book entity to manage interactions with the database.
+
+4. Implement Service Layer
+
+   - Implement a service class that encapsulates the logic of the book management service.
+
+5. Create REST Controller
+
+   - Develop a REST controller that provides the API endpoints.
+   - The API should support the following endpoints:
+     - POST /books – to add a new book
+     - GET /books/{id} – to retrieve a book by ID
+     - GET /books – to retrieve all books
+     - PUT /books/{id} – to update a book
+     - DELETE /books/{id} – to delete a book
+   - Use DTOs (Data Transfer Objects) to separate communication with the client.
+
+6. Error Handling and Validation
+
+   - Implement error handling for cases such as:
+     - A book with the specified ID does not exist (404 Not Found).
+     - Invalid inputs when creating or updating a book (400 Bad Request).
+   - Use @ExceptionHandler and @Valid annotations for this purpose.
+
+7. Write Unit Tests
+
+   - Write unit tests for the service layer to test the main logic.
+     - Use Mockito to mock the repository in the tests.
+     - Test all CRUD operations (create, read, update, delete).
+   - Implement integration tests for the REST controller with MockMvc to ensure the endpoints work as expected.
+
+8. Create Web-User-Interface to the Book-Service in Angular.
+
 ## What is JHipster?
 
-JHipster is one of those open-source projects you stumble upon and immediately think, "`Of course!`" It combines three very successful frameworks in web development: Bootstrap, Angular, and Spring Boot. Bootstrap was one of the first dominant web-component frameworks. Its most substantial appeal was that it only required a bit of HTML, and it worked! All the efforts we made in the Java community to develop web components were shown a better path by Bootstrap. It leveled the playing field in HTML/CSS development, much like Apple's Human Interface Guidelines did for iOS apps.
+JHipster is one of those open-source projects you stumble upon and immediately think, "`Of course!`" It combines three very successful frameworks in web development: Bootstrap, Angular, and Spring Boot. Bootstrap was one of the first dominant web-component frameworks. Its most substantial appeal was that it only required a bit of HTML, and it worked! It leveled the playing field in HTML/CSS development, much like Apple's Human Interface Guidelines did for iOS apps.
 
-https://www.julien-dubois.com/ [Julien Dubois] started JHipster in October 2013 (Julien's first commit was on https://github.com/jhipster/generator-jhipster/commit/c8630ab7af7b6a99db880b3b0e2403806b7d2436 [October 21, 2013]). The first public release (version 0.3.1) launched on December 7, 2013. Since then, the project has had 250 releases! It is an open-source, Apache 2.0-licensed project on GitHub. It has a core team of 30 developers and over 700 contributors. You can find its homepage at https://www.jhipster.tech/ [www.jhipster.tech]. If you look at https://github.com/jhipster/generator-jhipster [the project on GitHub], you can see it's mostly written in TypeScript (57%), Java (18%), and JavaScript (13%).
-
-JHipster 8 is the same JHipster many developers know and love, with a couple of bright and shiny new features: namely Spring Boot 3.2, Angular 17, Vue 3, and Java 21 support.
+[Julien Dubois](https://www.julien-dubois.com) started JHipster in October 2013 (Julien's first commit was on [October 21, 2013](https://github.com/jhipster/generator-jhipster/commit/c8630ab7af7b6a99db880b3b0e2403806b7d2436). The first public release (version 0.3.1) launched on December 7, 2013. Since then, the project has had 250 releases! It is an open-source, Apache 2.0-licensed project on GitHub. It has a core team of 30 developers and over 700 contributors. You can find its homepage at [www.jhipster.tech](https://www.jhipster.tech). If you look at [the project on GitHub](https://github.com/jhipster/generator-jhipster), you can see it's mostly written in TypeScript (57%), Java (18%), and JavaScript (13%). JHipster 8 is the same JHipster many developers know and love, with a couple of bright and shiny new features: namely Spring Boot 3.2, Angular 17, Vue 3, and Java 21 support.
 
 ## Project Structure
 
@@ -308,28 +367,40 @@ Then run:
 docker compose -f src/main/docker/app.yml up -d
 ```
 
-When running Docker Desktop on MacOS Big Sur or later, consider enabling experimental `Use the new Virtualization framework` for better processing performance ([disk access performance is worse](https://github.com/docker/roadmap/issues/7)).
-
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
+When running Docker Desktop on MacOS Big Sur or later, consider enabling experimental `Use the new Virtualization framework` for better processing performance ([disk access performance is worse](https://github.com/docker/roadmap/issues/7)). For more information refer to [Using Docker and Docker-Compose](https://www.jhipster.tech/documentation-archive/v8.3.0/docker-compose), this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
 
 ## Continuous Integration (optional)
 
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
+To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration](https://www.jhipster.tech/documentation-archive/v8.3.0/setting-up-ci/) page for more information.
 
-[JHipster Homepage and latest documentation]: https://www.jhipster.tech
-[JHipster 8.3.0 archive]: https://www.jhipster.tech/documentation-archive/v8.3.0
-[Using JHipster in development]: https://www.jhipster.tech/documentation-archive/v8.3.0/development/
-[Using Docker and Docker-Compose]: https://www.jhipster.tech/documentation-archive/v8.3.0/docker-compose
-[Using JHipster in production]: https://www.jhipster.tech/documentation-archive/v8.3.0/production/
-[Running tests page]: https://www.jhipster.tech/documentation-archive/v8.3.0/running-tests/
-[Code quality page]: https://www.jhipster.tech/documentation-archive/v8.3.0/code-quality/
-[Setting up Continuous Integration]: https://www.jhipster.tech/documentation-archive/v8.3.0/setting-up-ci/
-[Node.js]: https://nodejs.org/
-[NPM]: https://www.npmjs.com/
-[Webpack]: https://webpack.github.io/
-[BrowserSync]: https://www.browsersync.io/
-[Jest]: https://facebook.github.io/jest/
-[Cypress]: https://www.cypress.io/
-[Leaflet]: https://leafletjs.com/
-[DefinitelyTyped]: https://definitelytyped.org/
-[Angular CLI]: https://cli.angular.io/
+## Further References
+
+[JHipster Homepage and latest documentation](https://www.jhipster.tech)
+
+[JHipster 8.3.0 archive](https://www.jhipster.tech/documentation-archive/v8.3.0)
+
+[Using JHipster in development](https://www.jhipster.tech/documentation-archive/v8.3.0/development/)
+
+[Using JHipster in production](https://www.jhipster.tech/documentation-archive/v8.3.0/production/)
+
+[Running tests page](https://www.jhipster.tech/documentation-archive/v8.3.0/running-tests/)
+
+[Code quality page](https://www.jhipster.tech/documentation-archive/v8.3.0/code-quality/)
+
+[Node.js](https://nodejs.org/)
+
+[NPM](https://www.npmjs.com/)
+
+[Webpack](https://webpack.js.org/)
+
+[BrowserSync](https://www.browsersync.io/)
+
+[Jest](https://facebook.github.io/jest/)
+
+[Cypress](https://www.cypress.io/)
+
+[Leaflet](https://leafletjs.com/)
+
+[DefinitelyTyped](https://definitelytyped.org/)
+
+[Angular CLI](https://angular.dev/cli)
